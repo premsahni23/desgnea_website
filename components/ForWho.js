@@ -1,5 +1,6 @@
 'use client'
 
+import { ArrowRight } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function ForWho() {
@@ -61,8 +62,7 @@ export default function ForWho() {
               </div>
 
               <button className="text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
-                Explore Path{' '}
-                <span className="material-symbols-outlined text-base">arrow_forward</span>
+                Explore Path <ArrowRight size={16} />
               </button>
             </div>
           ))}

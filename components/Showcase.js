@@ -1,6 +1,7 @@
 'use client'
 
 import Image from 'next/image'
+import { ArrowRight } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Showcase() {
@@ -26,9 +27,8 @@ export default function Showcase() {
               Community.
             </h2>
           </div>
-          <button className="flex items-center gap-2 text-white font-bold hover:gap-4 transition-all whitespace-nowrap">
-            View All Projects{' '}
-            <span className="material-symbols-outlined text-base">east</span>
+          <button className="flex items-center gap-2 text-white font-bold hover:gap-4 transition-all whitespace-nowrap group">
+            View All Projects <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
           </button>
         </div>
 

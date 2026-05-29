@@ -1,5 +1,7 @@
 'use client'
 
+import { BookOpen, Terminal, TrendingUp } from 'lucide-react'
+
 export default function Hero() {
   const scrollToSection = (href) => {
     const el = document.querySelector(href)
@@ -13,15 +15,22 @@ export default function Hero() {
 
       <div className="max-w-[1280px] mx-auto px-6 w-full">
         <div className="grid lg:grid-cols-2 items-center gap-16 lg:gap-20">
+
           {/* Left Content */}
           <div className="fade-up text-center lg:text-left">
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#7364E3]/10 border border-[#7364E3]/20 rounded-full mb-6">
-              <span className="text-xs font-mono text-[#7364E3] uppercase tracking-widest" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+              <span
+                className="text-xs font-mono text-[#7364E3] uppercase tracking-widest"
+                style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              >
                 Available Now
               </span>
               <span className="w-1 h-1 bg-[#7364E3] rounded-full" />
-              <span className="text-xs font-mono text-[#D7C7EC]" style={{ fontFamily: 'JetBrains Mono, monospace' }}>
+              <span
+                className="text-xs font-mono text-[#D7C7EC]"
+                style={{ fontFamily: 'JetBrains Mono, monospace' }}
+              >
                 Join 500+ builders
               </span>
             </div>
@@ -74,7 +83,7 @@ export default function Hero() {
               style={{ animationDelay: '-2s' }}
             >
               <div className="w-10 h-10 bg-[#F7F0FF] rounded-lg flex items-center justify-center mb-3">
-                <span className="material-symbols-outlined text-[#7364E3] text-xl">school</span>
+                <BookOpen size={20} className="text-[#7364E3]" />
               </div>
               <p className="font-bold text-white text-sm mb-1">Learn</p>
               <p className="text-xs text-[#D7C7EC]">Skill mastery through mentorship.</p>
@@ -86,7 +95,7 @@ export default function Hero() {
               style={{ animationDelay: '-5s' }}
             >
               <div className="w-10 h-10 bg-[#D7C7EC] rounded-lg flex items-center justify-center mb-3">
-                <span className="material-symbols-outlined text-black text-xl">terminal</span>
+                <Terminal size={20} className="text-black" />
               </div>
               <p className="font-bold text-white text-sm mb-1">Build</p>
               <p className="text-xs text-[#D7C7EC]">Real-world product execution.</p>
@@ -98,7 +107,7 @@ export default function Hero() {
               style={{ animationDelay: '-8s' }}
             >
               <div className="w-10 h-10 bg-[#7364E3] rounded-lg flex items-center justify-center mb-3">
-                <span className="material-symbols-outlined text-white text-xl">rocket_launch</span>
+                <TrendingUp size={20} className="text-white" />
               </div>
               <p className="font-bold text-white text-sm mb-1">Grow</p>
               <p className="text-xs text-[#D7C7EC]">Scale with AI-native systems.</p>

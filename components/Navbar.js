@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Menu, X, Zap } from 'lucide-react'
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -14,9 +15,9 @@ export default function Navbar() {
 
   const navLinks = [
     { label: 'Ecosystem', href: '#ecosystem' },
-    { label: 'Benefits', href: '#for-who' },
-    { label: 'Showcase', href: '#showcase' },
-    { label: 'Community', href: '#stats' },
+    { label: 'Benefits',  href: '#for-who'   },
+    { label: 'Showcase',  href: '#showcase'  },
+    { label: 'Community', href: '#stats'     },
   ]
 
   const handleNavClick = (href) => {
@@ -35,13 +36,17 @@ export default function Navbar() {
     >
       <div className="max-w-[1280px] mx-auto px-6">
         <div className="h-20 flex items-center justify-between">
+
           {/* Logo + Desktop Links */}
           <div className="flex items-center gap-12">
             <a
               href="#"
-              className="font-display text-2xl font-extrabold tracking-tighter text-white"
+              className="flex items-center gap-2 font-display text-2xl font-extrabold tracking-tighter text-white"
               style={{ fontFamily: 'Hanken Grotesk, sans-serif' }}
             >
+              <div className="w-8 h-8 bg-[#7364E3] rounded-lg flex items-center justify-center">
+                <Zap size={16} className="text-white" fill="white" />
+              </div>
               DESGNEA
             </a>
             <div className="hidden md:flex items-center gap-8">
@@ -69,25 +74,11 @@ export default function Navbar() {
 
           {/* Hamburger */}
           <button
-            className="md:hidden flex flex-col gap-1.5 p-2 group"
+            className="md:hidden p-2 text-white"
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? 'rotate-45 translate-y-2' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? 'opacity-0' : ''
-              }`}
-            />
-            <span
-              className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                menuOpen ? '-rotate-45 -translate-y-2' : ''
-              }`}
-            />
+            {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
       </div>

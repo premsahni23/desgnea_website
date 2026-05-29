@@ -1,5 +1,6 @@
 'use client'
 
+import { MessageCircle, Smartphone } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function CTA() {
@@ -22,7 +23,7 @@ export default function CTA() {
               <span className="text-gradient-purple">right people.</span>
             </h2>
             <p className="text-lg text-[#D7C7EC] mb-12 leading-relaxed">
-              Don't build in isolation. Join an exclusive network of creators, freelancers, and
+              Don&apos;t build in isolation. Join an exclusive network of creators, freelancers, and
               founders who are defining the next era of building.
             </p>
 
@@ -38,7 +39,7 @@ export default function CTA() {
                   className="bg-[#5865F2] text-white p-4 rounded-full hover:opacity-90 hover:scale-105 transition-all"
                   aria-label="Join Discord"
                 >
-                  <span className="material-symbols-outlined text-xl">chat</span>
+                  <MessageCircle size={20} />
                 </a>
                 <a
                   href="https://wa.me/"
@@ -47,7 +48,7 @@ export default function CTA() {
                   className="bg-[#25D366] text-white p-4 rounded-full hover:opacity-90 hover:scale-105 transition-all"
                   aria-label="Join WhatsApp"
                 >
-                  <span className="material-symbols-outlined text-xl">phone_android</span>
+                  <Smartphone size={20} />
                 </a>
               </div>
             </div>

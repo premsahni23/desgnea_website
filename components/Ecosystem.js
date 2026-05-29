@@ -1,5 +1,6 @@
 'use client'
 
+import { BookMarked, Wrench, TrendingUp } from 'lucide-react'
 import { useScrollReveal } from '@/hooks/useScrollReveal'
 
 export default function Ecosystem() {
@@ -7,7 +8,7 @@ export default function Ecosystem() {
 
   const cards = [
     {
-      icon: 'menu_book',
+      Icon: BookMarked,
       iconBg: 'bg-[#F7F0FF]',
       iconColor: 'text-[#7364E3]',
       title: 'Learn',
@@ -15,7 +16,7 @@ export default function Ecosystem() {
       items: ['Industry Mentorship', 'Workshop Access', 'Skill Validation'],
     },
     {
-      icon: 'construction',
+      Icon: Wrench,
       iconBg: 'bg-[#D7C7EC]',
       iconColor: 'text-black',
       title: 'Build',
@@ -23,7 +24,7 @@ export default function Ecosystem() {
       items: ['Freelance Opportunities', 'Portfolio Projects', 'Collaborative Sprints'],
     },
     {
-      icon: 'trending_up',
+      Icon: TrendingUp,
       iconBg: 'bg-[#7364E3]',
       iconColor: 'text-white',
       title: 'Grow',
@@ -66,9 +67,7 @@ export default function Ecosystem() {
                   card.glow ? 'shadow-[0_0_20px_rgba(115,100,227,0.5)]' : ''
                 }`}
               >
-                <span className={`material-symbols-outlined text-2xl ${card.iconColor}`}>
-                  {card.icon}
-                </span>
+                <card.Icon size={28} className={card.iconColor} />
               </div>
               <h3
                 className="text-2xl font-bold text-white mb-4"
