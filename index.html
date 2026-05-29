@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>DESGNEA | Learn. Build. Grow.</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&amp;family=Hanken+Grotesk:wght@600;700;800&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "background": "#000000",
+                "surface": "#141218",
+                "brand-purple": "#7364E3",
+                "mid-lavender": "#D7C7EC",
+                "soft-lavender": "#F7F0FF",
+                "on-surface": "#FFFFFF",
+                "on-surface-variant": "#D7C7EC",
+                "outline-variant": "rgba(215, 199, 236, 0.12)"
+              },
+              borderRadius: {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "9999px"
+              },
+              spacing: {
+                "gutter": "24px",
+                "container-max": "1280px",
+                "xs": "8px",
+                "sm": "16px",
+                "xl": "80px",
+                "base": "4px",
+                "lg": "48px",
+                "md": "24px"
+              },
+              fontFamily: {
+                "display": ["Hanken Grotesk"],
+                "body": ["Inter"],
+                "mono": ["JetBrains Mono"]
+              },
+              fontSize: {
+                "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "800"}],
+                "display-lg": ["56px", {"lineHeight": "1.1", "letterSpacing": "-0.03em", "fontWeight": "700"}],
+                "headline-md": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                "body-md": ["16px", {"lineHeight": "1.6", "letterSpacing": "0em", "fontWeight": "400"}],
+                "label-mono": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "500"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        body {
+            background-color: #000000;
+            color: #FFFFFF;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        .grid-bg {
+            background-image: linear-gradient(rgba(115, 100, 227, 0.05) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(115, 100, 227, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(215, 199, 236, 0.1);
+        }
+        .glass-hover:hover {
+            background: rgba(255, 255, 255, 0.06);
+            border-color: rgba(115, 100, 227, 0.3);
+            transform: translateY(-4px);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .glow-purple {
+            box-shadow: 0 0 40px -10px rgba(115, 100, 227, 0.5);
+        }
+        .text-gradient-purple {
+            background: linear-gradient(135deg, #FFFFFF 0%, #7364E3 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+        }
+        .fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .orbit {
+            animation: orbit 20s linear infinite;
+        }
+        @keyframes orbit {
+            from { transform: rotate(0deg) translateX(20px) rotate(0deg); }
+            to { transform: rotate(360deg) translateX(20px) rotate(-360deg); }
+        }
+    </style>
+</head>
+<body class="font-body text-on-surface-variant selection:bg-brand-purple/30 selection:text-white">
+<!-- Navbar -->
+<nav class="fixed top-0 w-full z-50 bg-black/40 backdrop-blur-xl border-b border-white/5">
+<div class="max-w-container-max mx-auto px-gutter h-20 flex items-center justify-between">
+<div class="flex items-center gap-12">
+<a class="font-display text-2xl font-extrabold tracking-tighter text-white" href="#">DESGNEA</a>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-mid-lavender hover:text-white transition-colors" href="#ecosystem">Ecosystem</a>
+<a class="text-sm font-medium text-mid-lavender hover:text-white transition-colors" href="#for-who">Benefits</a>
+<a class="text-sm font-medium text-mid-lavender hover:text-white transition-colors" href="#showcase">Showcase</a>
+<a class="text-sm font-medium text-mid-lavender hover:text-white transition-colors" href="#stats">Community</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<button class="text-sm font-medium text-mid-lavender hover:text-white transition-colors">Login</button>
+<button class="bg-brand-purple text-white px-6 py-2 rounded-full text-sm font-bold glow-purple hover:scale-105 active:scale-95 transition-all">Join Community</button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative pt-32 pb-xl overflow-hidden grid-bg">
+<div class="max-w-container-max mx-auto px-gutter grid lg:grid-cols-2 items-center gap-xl">
+<div class="fade-up">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-brand-purple/10 border border-brand-purple/20 rounded-full mb-6">
+<span class="text-xs font-mono text-brand-purple uppercase tracking-widest">Available Now</span>
+<span class="w-1 h-1 bg-brand-purple rounded-full"></span>
+<span class="text-xs font-mono text-mid-lavender">Join 500+ builders</span>
+</div>
+<h1 class="text-display-xl mb-6">
+                    Learn. Build. <br/>
+<span class="text-gradient-purple">Grow.</span>
+</h1>
+<p class="text-body-lg text-mid-lavender max-w-xl mb-10 leading-relaxed">
+                    A trust-first ecosystem where students learn industry skills, freelancers build high-ticket opportunities, and founders grow scalable startups.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-brand-purple text-white px-8 py-4 rounded-full font-bold text-body-md glow-purple hover:opacity-90 transition-all">Get Started Free</button>
+<button class="border border-mid-lavender/30 text-white px-8 py-4 rounded-full font-bold text-body-md hover:bg-white/5 transition-all">View Showcase</button>
+</div>
+</div>
+<!-- Hero Visual -->
+<div class="relative h-[600px] hidden lg:flex items-center justify-center">
+<div class="absolute w-[400px] h-[400px] bg-brand-purple/20 orb animate-pulse"></div>
+<div class="relative w-full h-full">
+<!-- Orbiting Cards -->
+<div class="absolute top-1/4 left-0 w-48 glass p-6 rounded-xl orbit shadow-2xl z-10" style="animation-delay: -2s;">
+<div class="w-10 h-10 bg-soft-lavender rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-black" data-icon="school">school</span>
+</div>
+<p class="font-bold text-white mb-1">Learn</p>
+<p class="text-xs text-mid-lavender">Skill mastery through mentorship.</p>
+</div>
+<div class="absolute top-1/2 right-10 w-48 glass p-6 rounded-xl orbit shadow-2xl z-20" style="animation-delay: -5s;">
+<div class="w-10 h-10 bg-mid-lavender rounded flex items-center justify-center mb-4">
+<span class="material-symbols-outlined text-black" data-icon="terminal">terminal</span>
+</div>
+<p class="font-bold text-white mb-1">Build</p>
+<p class="text-xs text-mid-lavender">Real-world product execution.</p>
+</div>
+<div class="absolute bottom-1/4 left-1/4 w-48 glass p-6 rounded-xl orbit shadow-2xl z-10" style="animation-delay: -8s;">
+<div class="w-10 h-10 bg-brand-purple rounded flex items-center justify-center mb-4 text-white">
+<span class="material-symbols-outlined" data-icon="rocket_launch">rocket_launch</span>
+</div>
+<p class="font-bold text-white mb-1">Grow</p>
+<p class="text-xs text-mid-lavender">Scale with AI-native systems.</p>
+</div>
+<!-- Central Orb -->
+<div class="absolute inset-0 m-auto w-64 h-64 bg-gradient-to-tr from-brand-purple to-mid-lavender rounded-full opacity-20 blur-3xl"></div>
+<div class="absolute inset-0 m-auto w-32 h-32 border border-brand-purple/30 rounded-full flex items-center justify-center">
+<span class="text-display-lg text-white">D</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Ecosystem Section -->
+<section class="py-xl bg-black" id="ecosystem">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="text-center mb-16">
+<p class="text-xs font-mono text-brand-purple uppercase tracking-[0.3em] mb-4">THE ECOSYSTEM</p>
+<h2 class="text-display-lg">One Journey. Three Stages. <br/><span class="text-gradient-purple">Infinite Possibilities.</span></h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Learn -->
+<div class="glass glass-hover p-10 rounded-3xl flex flex-col items-center text-center group">
+<div class="w-16 h-16 bg-soft-lavender rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform"><span class="material-symbols-outlined text-2xl text-brand-purple">menu_book</span></div>
+<h3 class="text-2xl font-bold text-white mb-4">Learn</h3>
+<p class="text-mid-lavender mb-8">Master high-demand skills with direct industry mentorship and verified learning paths.</p>
+<ul class="text-sm space-y-3 text-white/70">
+<li>• Industry Mentorship</li>
+<li>• Workshop Access</li>
+<li>• Skill Validation</li>
+</ul>
+</div>
+<!-- Build -->
+<div class="glass glass-hover p-10 rounded-3xl flex flex-col items-center text-center group border-brand-purple/20">
+<div class="w-16 h-16 bg-mid-lavender rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform">
+<span class="material-symbols-outlined text-2xl text-black" data-icon="construction">construction</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Build</h3>
+<p class="text-mid-lavender mb-8">Execute real projects for real clients. Transition from learning to professional delivery.</p>
+<ul class="text-sm space-y-3 text-white/70">
+<li>• Freelance Opportunities</li>
+<li>• Portfolio Projects</li>
+<li>• Collaborative Sprints</li>
+</ul>
+</div>
+<!-- Grow -->
+<div class="glass glass-hover p-10 rounded-3xl flex flex-col items-center text-center group border-brand-purple/40">
+<div class="w-16 h-16 bg-brand-purple rounded-2xl flex items-center justify-center mb-8 transform group-hover:rotate-12 transition-transform shadow-[0_0_20px_rgba(115,100,227,0.5)]">
+<span class="material-symbols-outlined text-2xl text-white" data-icon="trending_up">trending_up</span>
+</div>
+<h3 class="text-2xl font-bold text-white mb-4">Grow</h3>
+<p class="text-mid-lavender mb-8">Scale your ventures with AI-driven workflows and access to a vetted talent pool.</p>
+<ul class="text-sm space-y-3 text-white/70">
+<li>• Startup Scaling</li>
+<li>• AI-Native Systems</li>
+<li>• Founder Network</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Who Is This For Section -->
+<section class="py-xl relative" id="for-who">
+<div class="absolute top-1/2 left-0 w-1/3 h-1/2 bg-brand-purple/10 orb"></div>
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid lg:grid-cols-3 gap-8">
+<!-- Students -->
+<div class="bg-surface/50 border border-white/5 p-12 rounded-[2rem] hover:border-brand-purple/50 transition-all group hover:-translate-y-2">
+<span class="text-xs font-mono text-brand-purple uppercase tracking-widest mb-6 block">FOR STUDENTS</span>
+<h4 class="text-3xl font-bold text-white mb-6">Bridging the Gap to Reality.</h4>
+<p class="text-mid-lavender mb-10">Stop building sandboxes. Start building products that users actually touch. Learn through execution.</p>
+<div class="h-1 bg-white/5 w-full mb-10 overflow-hidden">
+<div class="h-full bg-brand-purple w-1/3 group-hover:w-full transition-all duration-700"></div>
+</div>
+<button class="text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Path <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<!-- Freelancers -->
+<div class="bg-surface/50 border border-white/5 p-12 rounded-[2rem] hover:border-brand-purple/50 transition-all group hover:-translate-y-2">
+<span class="text-xs font-mono text-brand-purple uppercase tracking-widest mb-6 block">FOR FREELANCERS</span>
+<h4 class="text-3xl font-bold text-white mb-6">Verified Trust at Scale.</h4>
+<p class="text-mid-lavender mb-10">Eliminate the "trust gap" with clients. Our ecosystem provides the credentials and network to win high-ticket deals.</p>
+<div class="h-1 bg-white/5 w-full mb-10 overflow-hidden">
+<div class="h-full bg-brand-purple w-2/3 group-hover:w-full transition-all duration-700"></div>
+</div>
+<button class="text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Path <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+<!-- Founders -->
+<div class="bg-surface/50 border border-white/5 p-12 rounded-[2rem] hover:border-brand-purple/50 transition-all group hover:-translate-y-2">
+<span class="text-xs font-mono text-brand-purple uppercase tracking-widest mb-6 block">FOR FOUNDERS</span>
+<h4 class="text-3xl font-bold text-white mb-6">High Performance Talent.</h4>
+<p class="text-mid-lavender mb-10">Founders struggle to find vetted talent. We bridge that gap by connecting you with top-tier builders ready to scale.</p>
+<div class="h-1 bg-white/5 w-full mb-10 overflow-hidden">
+<div class="h-full bg-brand-purple w-full transition-all duration-700"></div>
+</div>
+<button class="text-white font-bold flex items-center gap-2 group-hover:gap-4 transition-all">Explore Path <span class="material-symbols-outlined" data-icon="arrow_forward">arrow_forward</span></button>
+</div>
+</div>
+</div>
+</section>
+<!-- Why Join / Features -->
+<section class="py-xl bg-black/50">
+<div class="max-w-container-max mx-auto px-gutter">
+<h2 class="text-display-lg text-center mb-16">Engineered for <span class="text-brand-purple">Excellence.</span></h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">Trust-First Network</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Verified credentials and performance history for every member in the ecosystem.</p>
+</div>
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">AI Native Tools</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Access proprietary AI systems designed to accelerate your development and design cycle.</p>
+</div>
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">Global Collaboration</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Connect with creators and founders from over 30 countries in real-time.</p>
+</div>
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">Industry Credentials</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Earn certificates and badges that are recognized by top tech employers and startups.</p>
+</div>
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">Exclusive Events</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Early access to hackathons, founder meetups, and design sprints globally.</p>
+</div>
+<div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-purple/30 transition-colors">
+<h5 class="text-xl font-bold text-white mb-3">Financial Growth</h5>
+<p class="text-sm text-mid-lavender leading-relaxed">Direct pipeline to high-paying freelance gigs and potential startup investment.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Community Showcase -->
+<section class="py-xl" id="showcase">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex justify-between items-end mb-16">
+<div>
+<p class="text-xs font-mono text-brand-purple uppercase tracking-[0.3em] mb-4">THE SHOWCASE</p>
+<h2 class="text-display-lg">Built by the <br/>Community.</h2>
+</div>
+<button class="hidden md:flex items-center gap-2 text-white font-bold hover:gap-4 transition-all mb-4">View All Projects <span class="material-symbols-outlined" data-icon="east">east</span></button>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+<!-- Large card -->
+<div class="col-span-2 row-span-2 rounded-3xl overflow-hidden glass group relative">
+<img alt="Project" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-8BpXz2I8T-QGeoqC1-OohyL2tmo2mqbJr3kjT4Kv_3t2qCo9Dqb7lXiC0Mb-gWS9qIvyJ_O4f0EMzr0wtgY1pySPus6qyDxlDk17t-ICI6LnJ27CVAu_OPKBGe7kVVyORwbayQ0t8XVAkWE8rEeCVw4jLHTqo70X6epVDTGT23eao3wOfv1aNYSWl7Vff2msQdj47Ssmw4tzUp34hEpnyYDVACLxDzM9dhxah6UWNm7-NKWz_6aksvJ8YzDpXOUYA92lRIljTbE"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-8 flex flex-col justify-end">
+<span class="text-xs font-mono text-brand-purple mb-2">HACKATHON WINNER</span>
+<h4 class="text-2xl font-bold text-white">AI Design Assistant</h4>
+<p class="text-sm text-mid-lavender mt-2 opacity-0 group-hover:opacity-100 transition-opacity">A collaborative tool for Figma users.</p>
+</div>
+</div>
+<div class="rounded-3xl overflow-hidden glass group relative aspect-square">
+<img alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-all opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFXg7xDPix2y20uMK9fuBBlzdEZ22QBqBQfYIw-Zgjlq1A67Lm2UBcTgt1mxbWTMEaTvTPeyv-2b0ilMcLYq_g65rUIun_OfA3CxOjzPFOmbaVSf5EMV51ZBygvOniRvY2VQmURn6v2Ry99dD4_LtRhsZszHk5N7q5eBbBqh793C-FkFedsZApHgVUMsUAg6Vqyf6pb3aQU5Jz7vAlP2-fDZfLG9Qe-CW6r9XH36W0_hsnUD6RogxGMu8xDVlDeO-4ppNA3ekDQSY"/>
+</div>
+<div class="rounded-3xl overflow-hidden glass group relative aspect-square">
+<img alt="Project" class="w-full h-full object-cover group-hover:scale-110 transition-all opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIgesE34kAoX12tg-vZzd5ZcSQKyD4m5f2Q2fE92Tq66MBiwl5qVJb03WcTce9GwOruRUCorynzmZhwwSJYeKM5AuX0t5ulfaRqIxUahmBdprnjqOKdeq-PZiuEkp7ZmXkkjEwEsG0r6SievxfG3RIqA61mKgrIiy6ElH9vHtl0GSa8hEHxkMeaNUlKNeZrZ4AvdIAmPyMZpaJ0ldNnd_9bzn7GjgtDCVXBsN0V5aFFYiNJwiPw1oIw2h_8HQbSvbh1gCybQlaGpA"/>
+</div>
+<div class="col-span-2 rounded-3xl overflow-hidden glass group relative h-64">
+<img alt="Project" class="w-full h-full object-cover group-hover:scale-105 transition-all opacity-60" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDUgRgbAsCiB9DpS5Z4nkFiM11BNm0A7bWjJvRIiA-ZAyuAB98MHVAUvVMm6_f81TrB55BU1pNZohRh7YUjlBc5V06zfQ6fYZ5BnZf5tC19eJwclQwY-CKHGfN258FfIU8KyT6Dj9pEFMY4QnoVGfnr6mbqhPQQSfy2Dfjk-iy5BBDIVVKSjP66p9W9HGsz21meQzTwTs8dixV_9ZbrFSaqiazWUVbe560yUmNJQnHdEtUSkFnzjl9BcMj6sJZH33JeKuqWWH87am8"/>
+<div class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all">
+<button class="bg-white text-black px-6 py-2 rounded-full font-bold">View Case Study</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Stats Section -->
+<section class="py-xl border-y border-white/5" id="stats">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="text-center">
+<p class="text-display-lg text-white mb-2">500+</p>
+<p class="text-xs font-mono text-brand-purple tracking-widest uppercase">Members Joined</p>
+</div>
+<div class="text-center">
+<p class="text-display-lg text-white mb-2">120+</p>
+<p class="text-xs font-mono text-brand-purple tracking-widest uppercase">Projects Built</p>
+</div>
+<div class="text-center">
+<p class="text-display-lg text-white mb-2">15k</p>
+<p class="text-xs font-mono text-brand-purple tracking-widest uppercase">Community Reach</p>
+</div>
+<div class="text-center">
+<p class="text-display-lg text-white mb-2">98%</p>
+<p class="text-xs font-mono text-brand-purple tracking-widest uppercase">Success Rate</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Final CTA Section -->
+<section class="py-xl">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="relative bg-gradient-to-br from-brand-purple/20 via-black to-soft-lavender/10 rounded-[3rem] p-12 lg:p-24 overflow-hidden border border-white/10">
+<div class="absolute top-0 right-0 w-96 h-96 bg-brand-purple/20 orb"></div>
+<div class="relative z-10 text-center max-w-3xl mx-auto">
+<h2 class="text-display-lg mb-8">
+                        Build your <span class="text-gradient-purple">future</span> with the <span class="text-gradient-purple">right people.</span>
+</h2>
+<p class="text-body-lg text-mid-lavender mb-12">
+                        Don't build in isolation. Join an exclusive network of creators, freelancers, and founders who are defining the next era of building.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="w-full sm:w-auto bg-brand-purple text-white px-10 py-5 rounded-full font-bold text-lg glow-purple hover:scale-105 transition-all">Join DESGNEA Now</button>
+<div class="flex items-center gap-3">
+<button class="bg-[#5865F2] text-white p-4 rounded-full hover:opacity-90 transition-all"><span class="material-symbols-outlined" data-icon="chat">chat</span></button>
+<button class="bg-[#25D366] text-white p-4 rounded-full hover:opacity-90 transition-all"><span class="material-symbols-outlined" data-icon="phone_android">phone_android</span></button>
+</div>
+</div>
+</div>
+<div class="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black to-transparent"></div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-black py-xl border-t border-white/5 relative overflow-hidden">
+<!-- Grid texture -->
+<div class="absolute inset-0 grid-bg opacity-20 pointer-events-none"></div>
+<div class="max-w-container-max mx-auto px-gutter relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-1 md:col-span-2">
+<a class="font-display text-2xl font-extrabold tracking-tighter text-white block mb-6" href="#">DESGNEA</a>
+<p class="text-mid-lavender max-w-sm leading-relaxed mb-8">
+                    The premium ecosystem for students, freelancers, and founders. Learn skills, build projects, and grow ventures in a trust-first environment.
+                </p>
+<div class="flex gap-4">
+<a class="w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-brand-purple/20 transition-all" href="#">𝕏</a>
+<a class="w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-brand-purple/20 transition-all" href="#">in</a>
+<a class="w-10 h-10 glass rounded-full flex items-center justify-center text-white hover:bg-brand-purple/20 transition-all" href="#">ig</a>
+</div>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Platform</h6>
+<ul class="space-y-4 text-sm text-mid-lavender">
+<li><a class="hover:text-white transition-colors" href="#">Ecosystem</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Showcase</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Testimonials</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Events</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Legal</h6>
+<ul class="space-y-4 text-sm text-mid-lavender">
+<li><a class="hover:text-white transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-white transition-colors" href="#">Cookie Policy</a></li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="text-xs text-mid-lavender/50">© 2024 DESGNEA Community. All rights reserved.</p>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+<span class="text-xs text-mid-lavender/50">System Operational</span>
+</div>
+</div>
+</div>
+</footer>
+<script>
+    // Smooth fade-in on scroll
+    const observerOptions = {
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-up');
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('section').forEach(section => {
+        section.classList.add('opacity-0');
+        observer.observe(section);
+    });
+</script>
+</body></html>
